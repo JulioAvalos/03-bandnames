@@ -21,9 +21,14 @@ class Sockets {
         this.bandList.increaseVotes(id);
         // solo emite a un cliente
         // socket.emit("current-bands", this.bandList.getBands());
-        // se lo emite a todos los clientes conectados
+        // se lo emite a todos los clientes conectados 
         this.io.emit("current-bands", this.bandList.getBands());
       });
+
+      socket.on("borrar-banda", (id) => {
+        this.bandList.removeBand(id);
+        this.io.emit("current-bands", this.bandList.getBands());
+      })
     });
   }
 }
