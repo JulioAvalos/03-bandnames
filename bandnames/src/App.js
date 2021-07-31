@@ -12,6 +12,7 @@ const connectSocketServer = () => {
 };
 
 function App() {
+  
   const [socket] = useState(connectSocketServer());
   const [online, setOnline] = useState(false);
   const [bands, setBands] = useState([]);
